@@ -58,7 +58,34 @@ python main.py
 
 ## 第五步：设置定时任务（可选）
 
-双击运行 `schedule_task.bat`（需要管理员权限），会自动创建每天定时执行的任务。
+以管理员身份运行 `scripts\schedule_task.bat`，会自动创建每天定时执行的任务。
+
+### 创建的任务信息
+
+- **任务名称**：`AI_News_Feed`
+- **执行时间**：每天 09:00
+- **执行命令**：`python main.py`
+
+### 管理定时任务
+
+**修改执行时间**：
+```bash
+schtasks /Change /TN "AI_News_Feed" /ST HH:MM
+```
+
+**查看任务状态**：
+```bash
+schtasks /Query /TN "AI_News_Feed"
+```
+
+**删除任务**：
+```bash
+schtasks /Delete /TN "AI_News_Feed" /F
+```
+
+### 验证任务是否正常工作
+
+创建任务后，可以在"任务计划程序"中查看任务状态。也可以手动运行一次 `python main.py` 测试程序是否正常工作。
 
 ## 常见问题
 

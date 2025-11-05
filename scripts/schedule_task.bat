@@ -1,9 +1,10 @@
 @echo off
+chcp 65001 >nul 2>&1
 REM Windows定时任务创建脚本
 REM 使用方法：以管理员身份运行此脚本
 
 echo ========================================
-echo 创建自动化新闻订阅定时任务
+echo Create Scheduled Task for News Feed
 echo ========================================
 
 REM 获取当前脚本所在目录（scripts文件夹）
@@ -16,48 +17,48 @@ set SCRIPT_PATH=%PROJECT_DIR%\main.py
 REM 检查Python是否可用
 %PYTHON_PATH% --version >nul 2>&1
 if errorlevel 1 (
-    echo 错误：未找到Python，请确保Python已安装并添加到PATH
+    echo Error: Python not found. Please ensure Python is installed and added to PATH
     pause
     exit /b 1
 )
 
 REM 检查main.py是否存在
 if not exist "%SCRIPT_PATH%" (
-    echo 错误：未找到main.py文件
+    echo Error: main.py file not found
     pause
     exit /b 1
 )
 
 echo.
-echo 脚本路径: %SCRIPT_PATH%
-echo Python路径: %PYTHON_PATH%
+echo Script Path: %SCRIPT_PATH%
+echo Python Path: %PYTHON_PATH%
 echo.
 
 REM 创建任务计划（每天上午9点执行）
-schtasks /Create /TN "AI新闻订阅" /TR "\"%PYTHON_PATH%\" \"%SCRIPT_PATH%\"" /SC DAILY /ST 09:00 /F
+schtasks /Create /TN "AI_News_Feed" /TR "\"%PYTHON_PATH%\" \"%SCRIPT_PATH%\"" /SC DAILY /ST 09:00 /F
 
 if errorlevel 1 (
     echo.
-    echo 错误：创建任务失败
-    echo 请确保以管理员身份运行此脚本
+    echo Error: Failed to create scheduled task
+    echo Please run this script as Administrator
     pause
     exit /b 1
 )
 
 echo.
 echo ========================================
-echo 任务创建成功！
+echo Task Created Successfully!
 echo ========================================
 echo.
-echo 任务名称: AI新闻订阅
-echo 执行时间: 每天 09:00
-echo 执行命令: %PYTHON_PATH% %SCRIPT_PATH%
+echo Task Name: AI_News_Feed
+echo Schedule: Daily at 09:00
+echo Command: %PYTHON_PATH% %SCRIPT_PATH%
 echo.
-echo 如需修改执行时间，请使用以下命令：
-echo schtasks /Change /TN "AI新闻订阅" /ST 新时间（格式：HH:MM）
+echo To change the schedule time, use:
+echo   schtasks /Change /TN "AI_News_Feed" /ST HH:MM
 echo.
-echo 如需删除任务，请使用以下命令：
-echo schtasks /Delete /TN "AI新闻订阅" /F
+echo To delete the task, use:
+echo   schtasks /Delete /TN "AI_News_Feed" /F
 echo.
 pause
 

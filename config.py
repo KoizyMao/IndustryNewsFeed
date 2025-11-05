@@ -8,12 +8,12 @@ from typing import List
 # SMTP配置（163邮箱）
 SMTP_HOST = os.getenv('SMTP_HOST', 'smtp.163.com')
 SMTP_PORT = int(os.getenv('SMTP_PORT', '465'))
-SMTP_USERNAME = os.getenv('SMTP_USERNAME', '')  # 需要配置：您的163邮箱地址
-SMTP_PASSWORD = os.getenv('SMTP_PASSWORD', '')  # 需要配置：163邮箱授权码（不是登录密码）
+SMTP_USERNAME = os.getenv('SMTP_USERNAME', 'zinengmaowork@163.com')  # 163邮箱地址
+SMTP_PASSWORD = os.getenv('SMTP_PASSWORD', 'BQZPz33qQ9eJG6Ab')  # 163邮箱授权码
 SMTP_USE_TLS = True
 
 # 收件人邮箱
-RECIPIENT_EMAIL = os.getenv('RECIPIENT_EMAIL', '')  # 需要配置：收件人邮箱地址
+RECIPIENT_EMAIL = os.getenv('RECIPIENT_EMAIL', 'zinengmaowork@163.com')  # 收件人邮箱地址
 
 # NewsAPI配置
 NEWS_API_KEY = os.getenv('NEWS_API_KEY', '')  # 可选，如果需要使用NewsAPI

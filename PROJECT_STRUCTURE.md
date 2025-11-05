@@ -65,6 +65,9 @@ IndustryNewsFeed/
 
 2. **设置定时任务**：
    - 以管理员身份运行 `scripts\schedule_task.bat`
+   - 创建的任务名称：`AI_News_Feed`
+   - 默认执行时间：每天 09:00
+   - 如需修改时间：`schtasks /Change /TN "AI_News_Feed" /ST HH:MM`
 
 ## 注意事项
 
@@ -72,4 +75,6 @@ IndustryNewsFeed/
 - ✅ 日志和缓存文件会自动生成，不需要手动创建
 - ✅ 所有脚本都可以从项目根目录运行
 - ✅ 虚拟环境文件夹 `venv/` 不应提交到Git
+- ✅ 定时任务脚本使用英文输出，避免编码问题
+- ✅ 定时任务名称使用英文：`AI_News_Feed`，避免中文编码问题
 
