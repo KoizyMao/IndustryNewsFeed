@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 虚拟环境
+venv/
+env/
+ENV/
+.venv
+
+# 日志文件
+*.log
+news_feed.log
+
+# 数据文件
+news_cache.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 临时文件
+organize_files.bat
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# 配置文件中的敏感信息
+config.py  # 包含敏感信息的配置文件，不应提交到Git
+
